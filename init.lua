@@ -152,14 +152,27 @@ require('lazy').setup({
     },
   },
 
+--  {
+--    -- Theme inspired by Atom
+--    'navarasu/onedark.nvim',
+--    priority = 1000,
+--    config = function()
+--      vim.cmd.colorscheme 'onedark'
+--    end,
+--  },
+
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    priority = 1000,
+    -- Theme inspired by Dracula (https://draculatheme.com/)
+    'maxmx03/dracula.nvim',
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      vim.cmd.colorscheme 'onedark'
+    local dracula = require 'dracula'
+      dracula.setup()
+      vim.cmd.colorscheme 'dracula'
     end,
   },
+
 
   {
     -- Set lualine as statusline
